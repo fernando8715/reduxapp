@@ -11,10 +11,8 @@ export const getPokemons = (page = 0) => {
         // const data = await resp.json();
         // console.log(data);
 
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${page * 10}`);
-        console.log(response);
+        const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${page * 10}`);
         
-        
-        // dispatch(setPokemons({ pokemons : data.results, page: page+ 1 }) );
+        dispatch(setPokemons({ pokemons : data.results, page: page+ 1 }) );
     }
 }
